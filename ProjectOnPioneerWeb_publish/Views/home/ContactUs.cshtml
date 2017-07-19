@@ -1,0 +1,166 @@
+﻿
+@model ProjectOnPioneerWeb_publish.Models.PioneerData
+
+<div class="wrapper-body">
+    <div class="pageheader-Title">
+        <h3>
+            Contact Us
+            <span>Home / <a href="#">Contact Us</a></span>
+        </h3>
+    </div>
+    <section class="welcome-section">
+        <div class="container">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padding-right">
+                <h2>Contact <span style="color:#00c5dc;">Pioneer Web Ltd</span></h2>
+                <p>
+                    If you are looking for quality lead generation services, or even if you have a general enquiry, Pioneer Web would love to hear from you.
+                </p>
+                <p>
+
+                    Feel free to contact us on our email address <b>customercare@pioneer-web.co.uk</b> or simply fill in the contact form below and Pioneer Web Ltd will be in touch shortly.
+                </p>
+                <div class="map-section">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2402.851554137267!2d-1.131593118012526!3d52.9690847839046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879c16931cc3081%3A0xd8eb79574bfa4b37!2s24+Brewsters+Rd%2C+Nottingham+NG3+3BP%2C+UK!5e0!3m2!1sen!2sin!4v1499669308371" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padding-left">
+                <h2>Get in <span style="color:#00c5dc;">touch</span></h2>
+                <h4 class="office-address">
+                    Our registered office address is:
+                    <span>
+                        24, Brewsters Road, Nottingham. <br />Nottinghamshire, NG3 3BP.
+                    </span>
+                </h4>
+                @if (Model.isSubmitted)
+                {
+                    <div class="formsection" id="thankYou">
+                        <h2>Thank You For Showing Interest in 'Pioneer Web'</h2>
+                        <p>We will Contact you soon.</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="contact-form">
+                        <h2>Contact <span style="color:#00c5dc;">Form</span></h2>
+
+                        <div class="formsection">
+                            <form method="post" action="/Home/ContactUs">
+                                <div id="contact-form" class="form-container" style="display:block" data-form-container>
+                                    @*@Html.ValidationSummary()*@
+                                    <div class="input-container">
+                                        <div class="row">
+                                            <div class="col-md-6 p-r-5">
+                                                <label>Interested in</label>
+                                                <span class="req-input">
+                                                    <span class="input-status" data-placement="top" title="Please Your Interested In."> </span>
+                                                    <select name="Interestedin" id="Interestedin" class="input-status input-statusedit">
+                                                        <option value="">Your Interested Select...</option>
+                                                        <option>Buy Leads</option>
+                                                        <option>Sell Leads</option>
+                                                        <option>Others</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="col-md-6 p-r-5">
+                                                <label>Your full name</label>
+                                                <span class="req-input">
+                                                    <span class="input-status" data-placement="top" title="Input Your First and Last Name."> </span>
+                                                    <input type="text" data-min-length="8" placeholder="Full Name" id="Yourfullname" name="Yourfullname">
+                                                </span>
+                                                @*@Html.ValidationMessageFor(x => x.Yourfullname)*@
+                                            </div>
+                                        </div>
+                                        <div class="clr"></div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 p-r-5">
+                                                <label>Email id</label>
+                                                <span class="req-input">
+                                                    <span class="input-status" data-placement="top" title="Please Input Your Email."> </span>
+                                                    <input type="email" placeholder="Email" name="Emailid" id="Emailid">
+                                                </span>
+                                                @*@Html.ValidationMessageFor(x => x.Emailid)*@
+                                            </div>
+                                            <div class="col-md-6 p-r-5">
+                                                <label>Contact no.</label>
+                                                <span class="req-input">
+                                                    <span class="input-status" data-placement="top" title="Please Input Your Contact Number."> </span>
+                                                    <input type="tel" placeholder="Contact Number" id="ContactNo" name="ContactNo">
+                                                </span>
+                                                @*@Html.ValidationMessageFor(x => x.ContactNo)*@
+                                            </div>
+                                        </div>
+                                        <div class="clr"></div>
+                                        <div class="row">
+                                            <div class="col-md-6 p-r-5">
+                                                <label>Alternative No.</label>
+                                                <span class="req-input">
+                                                    <span class="input-status" data-placement="top" title="Please Input your alternative no."> </span>
+                                                    <input type="tel" placeholder="Alternative no." id="AlternativeNo" name="AlternativeNo">
+                                                </span>
+                                            </div>
+                                            <div class="col-md-6 p-r-5">
+                                                <label>Best time to call</label>
+                                                <span class="req-input">
+                                                    <span class="input-status" data-placement="top" title="Please select best time to call"> </span>
+                                                    <select name="BestTimeToCall" class="input-status input-statusedit" id="BestTimeToCall">
+                                                        <option>Morning</option>
+                                                        <option>Afternoon</option>
+                                                        <option>Evening</option>
+                                                        <option selected="">Anytime</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="clr"></div>
+                                        <div class="row">
+                                            <label>Your Message</label>
+                                            <span class="req-input message-box">
+                                                <span class="input-status" data-placement="top" title="Please Include a Message."> </span>
+                                                <textarea type="textarea" data-min-length="10" placeholder="Message" id="YourMessage" name="YourMessage"></textarea>
+                                                @*@Html.ValidationMessageFor(x => x.YourMessage)*@
+                                        </div>
+                                        <div class="row submit-row">
+
+                                            <!--<button type="submit" class="btn btn-block submit-form"  onsubmit="document.getElementById('contact-form').style.display = 'none' && document.getElementById('thankYou').style.display = 'block';">">Submit</button>-->
+                                            <input type="submit" value="Submit" class="btn btn-block submit-form" onsubmit="isSubmitted=true" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="clr"></div>
+        </div>
+
+
+
+
+    </section><!--End_welcome-section-->
+
+</div>
+<script>
+
+
+//function disp()
+//    {
+//        var x = document.getElementById("thankYou");
+//        if (x.style.display === 'none')
+//        { x.style.display = 'block'; }
+//       else { x.style.display = 'none'; }
+
+//        var y = document.getElementById("contact-form");
+//        if (y.style.display === 'block')
+//        { y.style.display = 'none'; }
+//        else
+//       { y.style.display = 'block'; }
+
+    //    }
+
+
+
+</script>
+
+
